@@ -1,0 +1,26 @@
+hash 안쓰는 버전
+
+def solution(participant, completion):
+    participant.sort()
+    completion.sort()
+    for i in range(len(completion)):
+        if participant[i] != completion[i]:
+            return participant[i]
+    return participant[len(completion)]
+
+hash 쓰는 버전
+    
+def solution(participant, completion):
+
+  tmp = 0
+  dic = {}
+
+  for p in participant:
+      dic[hash(p)] = p
+      tmp += hash(p)
+
+  for com in completion:
+      tmp -= hash(com)
+
+
+return dic[tmp]
