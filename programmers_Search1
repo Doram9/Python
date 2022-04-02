@@ -1,0 +1,20 @@
+def solution(answers):
+    supo1 = [1, 2, 3, 4, 5]
+    supo2 = [2, 1, 2, 3, 2, 4, 2, 5]
+    supo3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
+    mondai = len(answers)
+    
+    supo_cnt = [0, 0, 0]
+    for i in range(mondai):
+        if answers[i] == supo1[i % 5]:
+            supo_cnt[0] = supo_cnt[0] + 1
+        if answers[i] == supo2[i % 8]:
+            supo_cnt[1] = supo_cnt[1] + 1
+        if answers[i] == supo3[i % 10]:
+            supo_cnt[2] = supo_cnt[2] + 1
+    maximum = max(supo_cnt)
+    answer = []
+    for i in range(3):
+        if maximum == supo_cnt[i]:
+            answer.insert(i, i + 1)
+    return answer
