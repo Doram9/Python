@@ -1,0 +1,10 @@
+def solution(absolutes, signs):
+    size = len(absolutes)
+    answer = 0
+    for i in range(size):
+        if signs[i]:
+            answer += absolutes[i]
+        else :
+            answer -= absolutes[i]
+    
+    return answer
